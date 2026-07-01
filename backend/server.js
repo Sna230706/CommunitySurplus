@@ -10,7 +10,7 @@ const wishlistRoutes = require("./routes/wishlistRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-const PORT = Number(process.env.PORT || 5001);
+const PORT = Number(process.env.PORT || 5000);
 
 const corsOrigin = process.env.CORS_ORIGIN || "*";
 app.use(cors({ origin: corsOrigin === "*" ? "*" : corsOrigin.split(",") }));
