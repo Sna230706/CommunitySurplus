@@ -4,7 +4,11 @@
   const CURRENT_USER_KEY = "community_surplus_current_user_v1";
   const TOKEN_KEY = "community_surplus_token_v1";
   const requestedApiBase = new URLSearchParams(window.location.search).get("apiBase");
-  const API_BASE_URL = String(window.CS_API_BASE_URL || requestedApiBase || "http://localhost:5000").replace(/\/$/, "");
+  const DEPLOYED_API_BASE_URL = "https://communitysurplusbackend.onrender.com";
+  const LOCAL_API_BASE_URL = "http://localhost:5000";
+  const localHostnames = new Set(["", "localhost", "127.0.0.1", "::1"]);
+  const defaultApiBase = localHostnames.has(window.location.hostname) ? LOCAL_API_BASE_URL : DEPLOYED_API_BASE_URL;
+  const API_BASE_URL = String(window.CS_API_BASE_URL || requestedApiBase || defaultApiBase).replace(/\/$/, "");
   const FALLBACK_IMAGE = "images/placeholder.svg";
   const LEGACY_DEMO_KEYS = [
     "community_surplus_products_v1",

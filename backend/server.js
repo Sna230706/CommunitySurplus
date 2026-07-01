@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const { ensureDatabase, pool } = require("./db");
 const authRoutes = require("./routes/authRoutes");
@@ -57,17 +57,28 @@ app.use((error, req, res, next) => {
   });
 });
 
+function describeError(error) {
+  return error.message || error.code || "Unknown startup error.";
+}
+
 async function startServer() {
   try {
     await ensureDatabase();
     console.log("MySQL database is ready.");
   } catch (error) {
-    console.warn("MySQL database setup failed. Check backend/.env and ensure MySQL is running.");
-    console.warn(error.message);
+    console.error("MySQL database setup failed. Check backend/.env and the deployed database connection.");
+    console.error(describeError(error));
+    process.exit(1);
   }
 
-  app.listen(PORT, () => {
+  const server = app.listen(PORT, () => {
     console.log(`Community Surplus API running at http://localhost:${PORT}`);
+  });
+
+  server.on("error", (error) => {
+    console.error(`Server failed to listen on port ${PORT}.`);
+    console.error(describeError(error));
+    process.exit(1);
   });
 }
 

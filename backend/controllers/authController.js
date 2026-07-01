@@ -1,7 +1,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const path = require("path");
 const { pool } = require("../db");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
 function publicUser(row) {
   if (!row) {

@@ -1,26 +1,71 @@
 const mysql = require("mysql2/promise");
-require("dotenv").config();
-
-const dbName = process.env.DB_NAME || "communitysurplus";
-
 const fs = require("fs");
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+
+const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "::1"]);
+
+function readConnectionUrl() {
+  const rawUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
+  if (!rawUrl) {
+    return {};
+  }
+
+  const url = new URL(rawUrl);
+  return {
+    host: url.hostname,
+    port: url.port ? Number(url.port) : undefined,
+    user: decodeURIComponent(url.username || ""),
+    password: decodeURIComponent(url.password || ""),
+    database: url.pathname ? decodeURIComponent(url.pathname.replace(/^\//, "")) : undefined
+  };
+}
+
+const urlConfig = readConnectionUrl();
+const dbName = process.env.DB_NAME || urlConfig.database || "communitysurplus";
+
+function isSslDisabled(value) {
+  return ["0", "false", "off", "disable", "disabled"].includes(String(value || "").toLowerCase());
+}
+
+function buildSslConfig(host) {
+  const sslMode = String(process.env.DB_SSL || "").toLowerCase();
+  const shouldUseSsl = process.env.DB_SSL
+    ? !isSslDisabled(process.env.DB_SSL)
+    : Boolean(host && !LOCAL_HOSTS.has(host));
+
+  if (!shouldUseSsl) {
+    return undefined;
+  }
+
+  const caPath = process.env.DB_SSL_CA
+    ? path.resolve(__dirname, process.env.DB_SSL_CA)
+    : path.join(__dirname, "certs", "isrgrootx1.pem");
+  const ssl = {
+    rejectUnauthorized: sslMode !== "unverified"
+  };
+
+  if (fs.existsSync(caPath)) {
+    ssl.ca = fs.readFileSync(caPath);
+  } else if (process.env.DB_SSL_CA) {
+    throw new Error(`DB_SSL_CA does not exist: ${caPath}`);
+  }
+
+  return ssl;
+}
 
 const baseConfig = {
-  host: process.env.DB_HOST || "localhost",
-  port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "",
+  host: process.env.DB_HOST || urlConfig.host || "localhost",
+  port: Number(process.env.DB_PORT || urlConfig.port || 3306),
+  user: process.env.DB_USER || urlConfig.user || "root",
+  password: process.env.DB_PASSWORD || urlConfig.password || "",
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0,
-
-  ssl: process.env.DB_HOST
-    ? {
-        ca: fs.readFileSync("./certs/isrgrootx1.pem"),
-        rejectUnauthorized: true,
-      }
-    : undefined,
+  connectTimeout: Number(process.env.DB_CONNECT_TIMEOUT_MS || 10000),
+  queueLimit: 0
 };
+
+baseConfig.ssl = buildSslConfig(baseConfig.host);
 
 const pool = mysql.createPool({
   ...baseConfig,
