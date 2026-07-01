@@ -3,14 +3,23 @@ require("dotenv").config();
 
 const dbName = process.env.DB_NAME || "communitysurplus";
 
+const fs = require("fs");
+
 const baseConfig = {
   host: process.env.DB_HOST || "localhost",
   port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "23072006",
+  password: process.env.DB_PASSWORD || "",
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+
+  ssl: process.env.DB_HOST
+    ? {
+        ca: fs.readFileSync("./certs/isrgrootx1.pem"),
+        rejectUnauthorized: true,
+      }
+    : undefined,
 };
 
 const pool = mysql.createPool({
