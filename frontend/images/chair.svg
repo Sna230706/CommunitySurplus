@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Office chair">
+  <rect width="800" height="600" fill="#f1eee5"/>
+  <rect x="294" y="120" width="212" height="210" rx="34" fill="#2f5f98"/>
+  <rect x="255" y="322" width="290" height="72" rx="28" fill="#1d2630"/>
+  <path d="M400 394v86M310 492h180M400 480l-72 56M400 480l72 56" stroke="#1d2630" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="315" cy="546" r="18" fill="#667085"/>
+  <circle cx="485" cy="546" r="18" fill="#667085"/>
+  <ellipse cx="400" cy="552" rx="245" ry="20" fill="#d8ded6"/>
+</svg>

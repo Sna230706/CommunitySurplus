@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Product placeholder">
+  <rect width="800" height="600" fill="#eef4ef"/>
+  <rect x="90" y="110" width="620" height="360" rx="34" fill="#ffffff" stroke="#d8ded6" stroke-width="12"/>
+  <path d="M210 390h380l-105-140-78 93-60-70z" fill="#2d6a4f" opacity=".86"/>
+  <circle cx="300" cy="220" r="42" fill="#c48a2c"/>
+  <text x="400" y="520" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#667085">Community Surplus</text>
+</svg>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Surplus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">CS</span> Community Surplus</a>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="dashboard.html" data-auth-only>Dashboard</a>
+        <a href="login.html" data-guest-only>Login</a>
+        <a href="register.html" data-guest-only>Register</a>
+        <button type="button" data-logout data-auth-only>Logout</button>
+        <span class="user-chip" data-user-chip>Guest</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="market-strip">
+      <div class="market-intro container">
+        <div>
+          <p class="eyebrow">Local reuse marketplace</p>
+          <h1>Community Surplus</h1>
+          <p>Find useful second-hand items nearby, save products for later, and list unused goods in a few minutes.</p>
+        </div>
+        <form class="search-panel" data-home-search>
+          <label for="home-search">Search surplus items</label>
+          <div class="search-row">
+            <input id="home-search" name="q" type="search" placeholder="Try table, books, mixer" autocomplete="off">
+            <button class="button" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-bar">
+        <div>
+          <h2>Recently Added</h2>
+          <p>Browse fresh listings from your community.</p>
+        </div>
+        <a class="button secondary" href="products.html">View All</a>
+      </div>
+      <div class="quick-filters" data-category-chips></div>
+      <div data-product-grid data-featured-limit="6"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Community Surplus</div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>

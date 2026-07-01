@@ -1,0 +1,154 @@
+/* ==========================================================================
+   PRODUCT STOREFRONT GRID
+   ========================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px; /* Aligned gap sizes with dashboard grids */
+}
+
+/* ==========================================================================
+   PRODUCT CARD ARCHITECTURE
+   ========================================================================== */
+.product-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shop); /* Updated to aesthetic 12px rounding */
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+/* Hover lift transition utilizing Terracotta accents */
+.product-card:hover {
+  border-color: rgba(217, 119, 74, 0.25);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.product-card.is-sold {
+  opacity: 0.65; /* Slightly softer contrast fade for vintage stock */
+}
+
+.product-media {
+  position: relative;
+  background: var(--surface-soft);
+}
+
+.product-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Premium Floating Sticker Badge */
+.product-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shop); /* Matches layout radius curves */
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--primary-brand); /* Warm Terracotta signature */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 12px rgba(125, 117, 113, 0.08);
+}
+
+/* Card Information Body */
+.product-body {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.product-body h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.product-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.product-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   CARD ACTION FOOTER PANELS
+   ========================================================================== */
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding: 14px 18px 18px;
+  background: #fdfcfb; /* Soft warm linen shade replaces cool white-blue background */
+}
+
+/* Minimalist Secondary Actions (e.g., Save Item / Wishlist) */
+.wishlist-button {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shop);
+  min-height: 44px;
+  padding: 0 14px;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 150ms ease;
+}
+
+.wishlist-button:hover {
+  border-color: var(--primary-brand);
+  color: var(--ink);
+  background: var(--surface-tint);
+  transform: translateY(-1px);
+}
+
+/* Aesthetic Active State */
+.wishlist-button.is-saved {
+  border-color: rgba(217, 119, 74, 0.3);
+  background: var(--surface-tint);
+  color: var(--primary-brand);
+}
+
+.owner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px 18px;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 920px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 620px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

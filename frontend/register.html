@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Community Surplus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">CS</span> Community Surplus</a>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="login.html" data-guest-only>Login</a>
+        <a href="register.html" data-guest-only>Register</a>
+        <button type="button" data-logout data-auth-only>Logout</button>
+        <span class="user-chip" data-user-chip>Guest</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell container">
+    <section class="auth-layout">
+      <div class="auth-copy">
+        <p class="eyebrow">Join the marketplace</p>
+        <h1>Register</h1>
+        <p>Create an account to list items, save products, and confirm purchases.</p>
+      </div>
+
+      <form class="form-panel" data-register-form>
+        <div class="form-grid">
+          <label class="field">
+            <span>Name</span>
+            <input name="name" type="text" required>
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" required>
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input name="password" type="password" minlength="6" required>
+          </label>
+          <label class="field">
+            <span>Confirm Password</span>
+            <input name="confirmPassword" type="password" minlength="6" required>
+          </label>
+        </div>
+        <button class="button full" type="submit">Create Account</button>
+        <p class="form-message" data-form-message></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/register.js" defer></script>
+</body>
+</html>

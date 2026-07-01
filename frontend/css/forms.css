@@ -1,0 +1,124 @@
+/* ==========================================================================
+   AUTH PAGE STRUCTURE
+   ========================================================================== */
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(300px, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding-top: 44px;
+}
+
+.auth-copy h1,
+.form-panel h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem); /* Slightly lowered maximum clamp to keep it elegant */
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.auth-copy p {
+  color: var(--muted);
+  margin-top: 12px;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   FORM CONTAINER PANELS
+   ========================================================================== */
+.form-panel {
+  display: grid;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shop); /* Updated to aesthetic 12px rounding */
+  background: var(--surface);
+  padding: 32px; /* Extra spacious padding for a boutique app feel */
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Input Fields Wrapper */
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+/* Field Text Labels */
+.field span {
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600; /* Clean, modern semi-bold label weighting */
+}
+
+/* ==========================================================================
+   GLOBAL FORM FIELDS & INPUTS
+   ========================================================================== */
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shop);
+  background: var(--bg); /* Soft Linen Cream default background */
+  color: var(--ink);
+  padding: 12px 14px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Premium Focus States Utilizing Terracotta Accents */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-brand);
+  background: var(--surface); /* Switches to pristine white on focus */
+  box-shadow: var(--ring);
+}
+
+/* ==========================================================================
+   REAL-TIME VALIDATION MESSAGES
+   ========================================================================== */
+.form-message {
+  min-height: 24px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Validation State Colors Overwrite */
+.form-message.error {
+  color: var(--danger); /* Soft Crimson Alert */
+}
+
+.form-message.success {
+  color: var(--primary-brand); /* Warm Terracotta Alignment */
+}
+
+/* ==========================================================================
+   RESPONSIVE FORM BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 820px) {
+  .auth-layout,
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Community Surplus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">CS</span> Community Surplus</a>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="dashboard.html" data-auth-only>Dashboard</a>
+        <a href="login.html" data-guest-only>Login</a>
+        <a href="register.html" data-guest-only>Register</a>
+        <button type="button" data-logout data-auth-only>Logout</button>
+        <span class="user-chip" data-user-chip>Guest</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell container">
+    <div class="page-header">
+      <div>
+        <p class="eyebrow">Marketplace</p>
+        <h1>All Products</h1>
+        <p>Search and filter community listings by category, condition, status, or price.</p>
+      </div>
+      <span class="status-pill" data-product-count>0 items</span>
+    </div>
+
+    <section class="toolbar" aria-label="Product filters">
+      <input type="search" data-product-search placeholder="Search by item, seller, or location">
+      <select data-category-filter aria-label="Filter by category"></select>
+      <select data-condition-filter aria-label="Filter by condition"></select>
+      <select data-status-filter aria-label="Filter by status"></select>
+      <select data-sort-filter aria-label="Sort products">
+        <option value="recent">Newest first</option>
+        <option value="price-low">Price low to high</option>
+        <option value="price-high">Price high to low</option>
+      </select>
+    </section>
+
+    <div class="section-bar">
+      <div>
+        <h2>Available Listings</h2>
+        <p>Open a product to contact the seller or confirm a purchase.</p>
+      </div>
+    </div>
+    <div data-product-grid></div>
+  </main>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Products | Community Surplus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">CS</span> Community Surplus</a>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="dashboard.html" data-auth-only>Dashboard</a>
+        <a href="profile.html" data-auth-only>Profile</a>
+        <a href="my-products.html" data-auth-only>My Products</a>
+        <a href="login.html" data-guest-only>Login</a>
+        <a href="register.html" data-guest-only>Register</a>
+        <button type="button" data-logout data-auth-only>Logout</button>
+        <span class="user-chip" data-user-chip>Guest</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell container">
+    <div class="page-header">
+      <div>
+        <p class="eyebrow">Seller</p>
+        <h1>My Products</h1>
+        <p>Edit listings, mark products as sold, or remove items that are no longer available.</p>
+      </div>
+      <a class="button" href="sell.html">Add Product</a>
+    </div>
+    <section data-my-products></section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

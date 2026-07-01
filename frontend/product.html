@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Community Surplus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">CS</span> Community Surplus</a>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+      <div class="nav-links" data-nav-links>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="sell.html">Sell</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="dashboard.html" data-auth-only>Dashboard</a>
+        <a href="login.html" data-guest-only>Login</a>
+        <a href="register.html" data-guest-only>Register</a>
+        <button type="button" data-logout data-auth-only>Logout</button>
+        <span class="user-chip" data-user-chip>Guest</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell container">
+    <section class="detail-layout" data-product-detail></section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/product-details.js" defer></script>
+</body>
+</html>

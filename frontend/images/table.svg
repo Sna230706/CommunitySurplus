@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Wooden study table">
+  <rect width="800" height="600" fill="#f1eee5"/>
+  <rect x="140" y="210" width="520" height="58" rx="12" fill="#8b5e34"/>
+  <rect x="190" y="268" width="42" height="170" fill="#5f3f25"/>
+  <rect x="568" y="268" width="42" height="170" fill="#5f3f25"/>
+  <rect x="250" y="292" width="300" height="72" rx="10" fill="#b47b43"/>
+  <rect x="282" y="316" width="82" height="18" rx="9" fill="#5f3f25"/>
+  <rect x="432" y="316" width="82" height="18" rx="9" fill="#5f3f25"/>
+  <ellipse cx="400" cy="462" rx="290" ry="28" fill="#d8ded6"/>
+</svg>
