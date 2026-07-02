@@ -2,7 +2,6 @@
 
 Community Surplus is a full-stack web application that provides a community-driven marketplace for buying and selling surplus or pre-owned products. The platform promotes sustainable consumption by encouraging users to reuse items that are still in good condition, helping reduce waste while making quality products more affordable and accessible.
 
-
 ## ✨ Features
 
 * Secure user registration and login
